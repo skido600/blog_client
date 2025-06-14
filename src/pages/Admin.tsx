@@ -21,12 +21,14 @@ export default function Admin() {
     headerImage: File | null;
     articleImages: File[];
     imageCaption: string;
+    featured: boolean;
   }>({
     title: "",
     description: "",
     headerImage: null,
     articleImages: [],
     imageCaption: "",
+    featured: false,
   });
 
   const [fileInputKey, setFileInputKey] = useState<number>(Date.now());
@@ -79,7 +81,7 @@ export default function Admin() {
     form.append("title", formData.title);
     form.append("description", formData.description);
     form.append("Imagecaption", formData.imageCaption);
-
+    form.append("featured", String(formData.featured));
     if (formData.headerImage) {
       form.append("HeaderImage", formData.headerImage);
     }
@@ -112,6 +114,7 @@ export default function Admin() {
         headerImage: null,
         articleImages: [],
         imageCaption: "",
+        featured: false,
       });
     } catch (err) {
       console.log(err);
@@ -155,6 +158,20 @@ export default function Admin() {
                 }
               />
             </div>
+          </div>
+          <div className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              id="featured"
+              checked={formData.featured}
+              onChange={(e) =>
+                setFormData((prev) => ({ ...prev, featured: e.target.checked }))
+              }
+              className="w-4 h-4"
+            />
+            <label htmlFor="featured" className="text-sm text-gray-700">
+              Feature this post
+            </label>
           </div>
 
           <div>
