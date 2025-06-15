@@ -113,6 +113,7 @@ const AllPost: React.FC = () => {
           method: "PUT",
           headers: {
             Authorization: `Bearer ${token}`,
+            // NOTE: Don't set Content-Type when using FormData
           },
           body: formData,
         }

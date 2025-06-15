@@ -127,7 +127,7 @@ export default function Admin() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 ">
+    <div className="min-h-screen  bg-gray-50 ">
       <div className="bg-white rounded-lg border border-neutral-400 p-6">
         <h2 className="text-2xl font-bold mb-6 text-gray-800">Create Post</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>

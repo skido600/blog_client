@@ -78,7 +78,7 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="flex bg-[#001C30] justify-center items-center min-h-screen p-4">
+    <main className="flex bg-[#001C30]  justify-center items-center min-h-screen p-4">
       <section className="w-full max-w-md bg-white rounded-xl p-8 shadow-lg">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
@@ -152,6 +152,7 @@ export default function LoginPage() {
           </button>
         </form>
       </section>
+      {/* <Theme /> */}
     </main>
   );
 }

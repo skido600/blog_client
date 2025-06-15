@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import Theme from "./Theme";
 
 const siteMetadata = {
   linkedin: "https://linkedin.com/in/yourprofile",
@@ -40,7 +41,7 @@ const Nav = () => {
         {/* Your page content would go here */}
       </div>
 
-      <header className="fixed top-0 left-0 right-0 px-3 md:px-24 z-50 bg-white/80 backdrop-blur-md m-auto p-4 flex items-center justify-between shadow-sm">
+      <header className="fixed top-0 left-0 right-0 px-3 md:px-24 z-50 dark:bg-transparent bg-opacity-60 backdrop-filter dark:backdrop-blur-md bg-white/80 backdrop-blur-md m-auto dark:border-b py-3 md:py-0 dark:border-neutral-800 flex items-center justify-between shadow-sm">
         <section className="flex items-center">
           <div className="font-bold text-lg">Logo</div>
 
@@ -56,6 +57,7 @@ const Nav = () => {
                 {link.label}
               </Link>
             ))}
+            <Theme />
           </nav>
         </section>
 
@@ -134,7 +136,7 @@ const MobileNav = ({ click, navLinks, toggle }: MobileNavProps) => {
 
   return (
     <nav
-      className={`w-max py-3 z-50 px-6 sm:px-8 border border-black rounded-full font-medium capitalize items-center flex md:hidden fixed right-1/2 translate-x-1/2 bg-white/80 backdrop-blur-sm transition-all ease duration-300 ${
+      className={`w-max py-3 z-50 px-6 sm:px-8 border dark:backdrop-blur-md  border-black rounded-full font-medium capitalize items-center flex md:hidden fixed right-1/2 translate-x-1/2 bg-white/80 backdrop-blur-sm transition-all ease duration-300 ${
         click ? "top-3" : "-top-20"
       }`}>
       {navLinks.map((link, idx) => (
@@ -142,14 +144,15 @@ const MobileNav = ({ click, navLinks, toggle }: MobileNavProps) => {
           key={idx}
           to={link.to}
           onClick={toggle}
-          className={`mx-2 ${
+          className={`mx-2 dark:text-black ${
             location.pathname === link.to
-              ? "border-[#5043e7] border-b text-black px-4  rounded-b-2xl"
+              ? "border-[#5043e7] dark:border-none border-b text-black px-4  rounded-b-2xl"
               : ""
           }`}>
           {link.label}
         </Link>
       ))}
+      <Theme />
     </nav>
   );
 };

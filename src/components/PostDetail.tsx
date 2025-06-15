@@ -5,6 +5,8 @@ import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css"; // <-- dark theme for code blocks
 import rehypeRaw from "rehype-raw";
+import Idskeleton from "./helper/Idskeleton";
+
 function PostDetail() {
   const { id } = useParams();
 
@@ -13,8 +15,9 @@ function PostDetail() {
     queryFn: () => fetchPostById(id),
     enabled: !!id,
   });
-
-  if (isLoading) return <p className="text-center py-10">Loading post...</p>;
+  if (isLoading) {
+    return <Idskeleton />;
+  }
   if (isError || !data.post)
     return <p className="text-center py-10">Post not found</p>;
 
