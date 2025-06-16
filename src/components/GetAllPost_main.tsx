@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllPosts } from "./Datas/services";
 import { Link } from "react-router-dom";
-import { useMemo } from "react";
+import { useMemo, Suspense, lazy } from "react";
 import Allpost from "./helper/Allpost";
+import MarkdownLoader from "./helper/MarkdownLoader";
+const MarkdownRenderer = lazy(() => import("./MarkdownRenderer"));
 
 type Post = {
   _id: string;
@@ -36,7 +38,10 @@ function GetAllPost_main() {
               {post.title}
             </h2>
             <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-              {post.description}
+              {/* {} */}
+              <Suspense fallback={<MarkdownLoader />}>
+                <MarkdownRenderer content={post.description || ""} />
+              </Suspense>
             </p>
             <Link
               to={`/post/${post._id}`}

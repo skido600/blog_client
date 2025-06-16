@@ -2,17 +2,11 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Theme from "./Theme";
-
-const siteMetadata = {
-  linkedin: "https://linkedin.com/in/yourprofile",
-  twitter: "https://twitter.com/yourprofile",
-  github: "https://github.com/yourprofile",
-};
+import { siteMetadata } from "./Datas/sitemap";
 
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Contact", to: "/contact" },
 ];
 
 interface NavLink {
@@ -43,7 +37,7 @@ const Nav = () => {
 
       <header className="fixed top-0 left-0 right-0 px-3 md:px-24 z-50 dark:bg-transparent bg-opacity-60 backdrop-filter dark:backdrop-blur-md bg-white/80 backdrop-blur-md m-auto dark:border-b py-3 md:py-0 dark:border-neutral-800 flex items-center justify-between shadow-sm">
         <section className="flex items-center">
-          <div className="font-bold text-lg">Logo</div>
+          <div className="font-bold text-lg">Leo </div>
 
           {/* Desktop Nav */}
           <nav className="w-max py-3 px-8 rounded-full font-medium capitalize items-center hidden sm:flex z-50">
@@ -51,8 +45,8 @@ const Nav = () => {
               <Link
                 key={idx}
                 to={link.to}
-                className={`mx-2 px-4 rounded-2xl hover:border-b hover:bg-[#5043e7] hover:text-white ${
-                  location.pathname === link.to ? "bg-[#5043e7] text-white" : ""
+                className={`mx-2 px-4 rounded-2xl hover:bg-[#16404D] hover:text-white ${
+                  location.pathname === link.to ? "bg-[#16404D] text-white" : ""
                 }`}>
                 {link.label}
               </Link>

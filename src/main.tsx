@@ -1,25 +1,26 @@
-import { StrictMode } from "react";
+import { StrictMode, Suspense, lazy } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "sonner";
 
-import Home from "./pages/Home.tsx";
-import About from "./pages/About.tsx";
-import Contact from "./pages/Contact.tsx";
+// ✅ Lazy-loaded pages/components
+const Home = lazy(() => import("./pages/Home.tsx"));
+const About = lazy(() => import("./pages/About.tsx"));
+const Admin = lazy(() => import("./pages/Admin.tsx"));
+const Login = lazy(() => import("./components/Login.tsx"));
+const All_post = lazy(() => import("./components/All_post.tsx"));
+const PostDetail = lazy(() => import("./components/PostDetail.tsx"));
+
 import RootLayout from "./layout/RootLayout.tsx";
 import AdminLayout from "./layout/AdminLayout.tsx";
-import Admin from "./pages/Admin.tsx";
-import Login from "./components/Login.tsx";
-import { Toaster } from "sonner";
-import All_post from "./components/All_post.tsx";
 import ProtectedRoute from "./Context/ProtectedRoute.tsx";
 import AuthProtector from "./Context/AuthProtecter.tsx";
-import PostDetail from "./components/PostDetail.tsx";
+import Loader from "./components/helper/Loader.tsx";
 
 const queryClient = new QueryClient();
 
-// ✅ Define your routes normally
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -35,10 +36,6 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
       },
       {
         path: "/post/:id",
@@ -71,7 +68,9 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <Toaster position="top-center" />
-      <RouterProvider router={router} />
+      <Suspense fallback={<Loader />}>
+        <RouterProvider router={router} />
+      </Suspense>
     </QueryClientProvider>
   </StrictMode>
 );

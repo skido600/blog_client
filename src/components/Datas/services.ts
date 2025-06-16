@@ -22,4 +22,16 @@ async function fetchAllPosts() {
   return res.json();
 }
 
-export { fetchFeaturedPosts, fetchPostById, fetchAllPosts };
+async function fetchByView() {
+  const res = await fetch(
+    "https://my-blog-z9ga.onrender.com/posts/most-viewed"
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch posts");
+  }
+
+  return res.json();
+}
+
+export { fetchFeaturedPosts, fetchPostById, fetchAllPosts, fetchByView };

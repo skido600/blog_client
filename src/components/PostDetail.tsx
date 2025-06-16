@@ -1,12 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPostById } from "./Datas/services";
-import ReactMarkdown from "react-markdown";
-import rehypeHighlight from "rehype-highlight";
-import "highlight.js/styles/atom-one-dark.css"; // <-- dark theme for code blocks
-import rehypeRaw from "rehype-raw";
+import { Suspense, lazy } from "react";
 import Idskeleton from "./helper/Idskeleton";
-
+import MarkdownLoader from "./helper/MarkdownLoader";
+const MarkdownRenderer = lazy(() => import("./MarkdownRenderer"));
 function PostDetail() {
   const { id } = useParams();
 
@@ -31,31 +29,9 @@ function PostDetail() {
       <h1 className="text-4xl font-bold mb-4">{data.post.title}</h1>
 
       <article className="prose max-w-none prose-headings:mt-6 prose-pre:bg-[#1e1e1e] prose-pre:text-white prose-pre:rounded-lg prose-pre:p-4 overflow-x-auto">
-        <ReactMarkdown
-          rehypePlugins={[rehypeRaw, rehypeHighlight]}
-          components={{
-            img: (props) => (
-              <img
-                {...props}
-                className="inline-block rounded-full w-[42px] h-[42px] mr-2"
-              />
-            ),
-            a: (props) => (
-              <a
-                {...props}
-                className="inline-block hover:scale-105 transition-transform"
-                target="_blank"
-                rel="noopener noreferrer"
-              />
-            ),
-            p: ({ children }) => (
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                {children}
-              </p>
-            ),
-          }}>
-          {data.post.description}
-        </ReactMarkdown>
+        <Suspense fallback={<MarkdownLoader />}>
+          <MarkdownRenderer content={data.post.description} />
+        </Suspense>
       </article>
     </section>
   );
