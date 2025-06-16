@@ -7,7 +7,7 @@ function Me() {
         href={siteMetadata.FaWhatsapp}
         target="_blank"
         rel="noopener noreferrer">
-        <p className="text-2xl">
+        <p className=" text-sm">
           Have a project in mind? Reach out to me 📞 from{" "}
           <span className="underline">here</span> and let's make it happen.
         </p>

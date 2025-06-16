@@ -14,19 +14,19 @@ const MarkdownRenderer = ({ content }: Props) => {
         img: (props) => (
           <img
             {...props}
-            className="inline-block rounded-full w-[42px] h-[42px] mr-2"
+            className="inline-block rounded-full dark:text-white w-[42px] h-[42px] mr-2"
           />
         ),
         a: (props) => (
           <a
             {...props}
-            className="inline-block hover:scale-105 transition-transform"
+            className="inline-block dark:text-white hover:scale-105 transition-transform"
             target="_blank"
             rel="noopener noreferrer"
           />
         ),
         p: ({ children }) => (
-          <p className="text-base text-gray-700 leading-relaxed mb-4">
+          <p className="text-base dark:text-white text-gray-700 leading-relaxed mb-4">
             {children}
           </p>
         ),

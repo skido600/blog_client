@@ -127,12 +127,14 @@ export default function Admin() {
   };
 
   return (
-    <div className="min-h-screen  bg-gray-50 ">
-      <div className="bg-white rounded-lg border border-neutral-400 p-6">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Create Post</h2>
+    <div className="min-h-screen   ">
+      <div className="bg-white dark:bg-[#1b1b1b] rounded-lg border  dark:border-neutral-800 border-neutral-400 p-6">
+        <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
+          Create Post
+        </h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium dark:text-white text-gray-700 mb-1">
               Title*
             </label>
             <input
@@ -141,12 +143,12 @@ export default function Admin() {
               value={formData.title}
               onChange={handleInputChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border  dark:border-neutral-800 outline-none focus:border-none border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1 dark:text-white">
               Description*
             </label>
             <div className="bg-white rounded-md border border-gray-300 p-2">
@@ -169,13 +171,15 @@ export default function Admin() {
               }
               className="w-4 h-4"
             />
-            <label htmlFor="featured" className="text-sm text-gray-700">
+            <label
+              htmlFor="featured"
+              className="text-sm dark:text-white text-gray-700">
               Feature this post
             </label>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm dark:text-white font-medium text-gray-700 mb-1">
               Header Image*
             </label>
             <input
@@ -183,12 +187,12 @@ export default function Admin() {
               accept="image/*"
               onChange={handleHeaderImageChange}
               required
-              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:border file:rounded-md file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100"
+              className="block w-full dark:text-white text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:border file:rounded-md file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block dark:text-white text-sm font-medium text-gray-700 mb-1">
               Article Images (Optional)
             </label>
             <input
@@ -197,13 +201,13 @@ export default function Admin() {
               accept="image/*"
               multiple
               onChange={handleArticleImagesChange}
-              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:border file:rounded-md file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100"
+              className="block w-full text-sm text-gray-500  dark:text-white dark:border-neutral-800 outline-none file:mr-4 file:py-2 file:px-4 file:border file:rounded-md file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100"
             />
             <ul className="mt-2 space-y-1">
               {formData.articleImages.map((file, index) => (
                 <li
                   key={index}
-                  className="flex items-center justify-between text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-md">
+                  className="flex items-center dark:text-white justify-between text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-md">
                   {file.name}
                   <button
                     type="button"
@@ -217,7 +221,7 @@ export default function Admin() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm dark:text-white font-medium text-gray-700 mb-1">
               Image Caption
             </label>
             <input
@@ -225,7 +229,7 @@ export default function Admin() {
               name="imageCaption"
               value={formData.imageCaption}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border dark:border-neutral-800 outline-none focus:border-none border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 

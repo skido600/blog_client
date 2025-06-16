@@ -3,7 +3,7 @@ import { siteMetadata } from "./Datas/sitemap";
 
 function Footer() {
   return (
-    <footer className="mt-16  rounded-2xl bg-[#1b1b1b] dark:bg-[#16404D] m-2 sm:m-10 flex flex-col items-center text-light dark:text-dark">
+    <footer className="mt-4  rounded-2xl bg-[#1b1b1b] dark:bg-[#16404D] m-2 sm:m-10 flex flex-col items-center text-light dark:text-dark">
       <h3 className="mt-16 font-medium dark:font-bold text-center text-white capitalize text-2xl sm:text-3xl lg:text-4xl px-4">
         Stories That Matter | Latest Developments | Expert Guide
       </h3>
@@ -26,19 +26,19 @@ function Footer() {
       </form>
       <div className="flex items-center mt-8 gap-x-8">
         <a href={siteMetadata.github} target="_blank" rel="noopener noreferrer">
-          <FaGithub />
+          <FaGithub className="text-white " />
         </a>
         <a
           href={siteMetadata.twitter}
           target="_blank"
           rel="noopener noreferrer">
-          <FaTwitter />
+          <FaTwitter className="text-white " />
         </a>
         <a
           href={siteMetadata.linkedin}
           target="_blank"
           rel="noopener noreferrer">
-          <FaLinkedin />
+          <FaLinkedin className="text-white " />
         </a>
       </div>
 

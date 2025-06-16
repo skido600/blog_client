@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchByView } from "./Datas/services";
 import { Link } from "react-router-dom";
-import MarkdownRenderer from "./MarkdownRenderer";
+// import MarkdownRenderer from "./MarkdownRenderer";
 
 type Post = {
   _id: string;
@@ -61,7 +61,6 @@ function Article_Header() {
               </h1>
               <p className="hidden sm:inline-block mt-4 md:text-lg lg:text-xl">
                 {/* {} */}
-                <MarkdownRenderer content={firstPost?.description || ""} />
               </p>
             </>
           )}

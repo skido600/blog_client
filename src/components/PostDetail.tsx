@@ -26,9 +26,9 @@ function PostDetail() {
         alt={data.post.Imagecaption}
         className="rounded-xl w-full mb-6"
       />
-      <h1 className="text-4xl font-bold mb-4">{data.post.title}</h1>
+      <h1 className="text-4xl  font-bold mb-4">{data.post.title}</h1>
 
-      <article className="prose max-w-none prose-headings:mt-6 prose-pre:bg-[#1e1e1e] prose-pre:text-white prose-pre:rounded-lg prose-pre:p-4 overflow-x-auto">
+      <article className="prose max-w-none dark:text-white prose-headings:mt-6 prose-pre:bg-[#1e1e1e] prose-pre:text-white prose-pre:rounded-lg prose-pre:p-4 overflow-x-auto">
         <Suspense fallback={<MarkdownLoader />}>
           <MarkdownRenderer content={data.post.description} />
         </Suspense>

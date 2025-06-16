@@ -91,7 +91,7 @@ const Nav = () => {
           <div className="w-6 cursor-pointer transition-all ease duration-300">
             <div className="relative h-6">
               <span
-                className="absolute top-0 w-full h-0.5 bg-black rounded transition-all ease duration-200"
+                className="absolute  top-0 w-full h-0.5 dark:bg-white bg-black rounded transition-all ease duration-200"
                 style={{
                   transform: click
                     ? "rotate(-45deg) translateY(12px)"
@@ -99,13 +99,13 @@ const Nav = () => {
                 }}
               />
               <span
-                className="absolute top-2 w-full h-0.5 bg-black rounded transition-all ease duration-200"
+                className="absolute top-2 w-full h-0.5 dark:bg-white bg-black rounded transition-all ease duration-200"
                 style={{
                   opacity: click ? 0 : 1,
                 }}
               />
               <span
-                className="absolute top-4 w-full h-0.5 bg-black rounded transition-all ease duration-200"
+                className="absolute top-4 dark:bg-white  w-full h-0.5 bg-black rounded transition-all ease duration-200"
                 style={{
                   transform: click
                     ? "rotate(45deg) translateY(-11px)"
