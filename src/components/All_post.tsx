@@ -124,7 +124,7 @@ const AllPost: React.FC = () => {
       if (res.ok) {
         setPosts((prev) =>
           prev.map((post) =>
-            post._id === id ? { ...post, ...editFields } : post
+            post.title === id ? { ...post, ...editFields } : post
           )
         );
         toast.success(data.message || "Post updated successfully", {

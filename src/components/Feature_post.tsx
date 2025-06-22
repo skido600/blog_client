@@ -63,7 +63,7 @@ function Feature_post() {
             {/* Secondary Posts */}
             <div className="md:col-span-1 space-y-6">
               {secondaryPosts.map((item) => (
-                <Link to={`/post/${item._id}`} key={item._id}>
+                <Link to={`/posts/${item._id}`} key={item._id}>
                   <article className="group flex flex-col  mb-3 sm:flex-row md:flex-col gap-4 bg-light dark:bg-dark-foreground  dark:border-neutral-800  p-2 rounded-xl border border-neutral-500 transition-shadow duration-300">
                     <div className="overflow-hidden rounded-lg flex-shrink-0  md:w-full h-40 sm:h-auto">
                       <img

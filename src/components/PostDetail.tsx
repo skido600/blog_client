@@ -30,7 +30,7 @@ function PostDetail() {
     <>
       <Helmet>
         <title>{post.title}</title>
-        <meta name="description" content={post.description?.slice(0, 150)} />
+        <meta name="description" content={post.description?.slice(0, 40)} />
         <meta property="og:title" content={post.title} />
         <meta
           property="og:description"
