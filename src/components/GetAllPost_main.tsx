@@ -44,7 +44,7 @@ function GetAllPost_main() {
               </Suspense>
             </p>
             <Link
-              to={`/posts/${post._id}`}
+              to={`/post/${post._id}`}
               className="inline-block text-blue-600 font-medium hover:underline">
               Read more →
             </Link>
